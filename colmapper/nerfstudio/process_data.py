@@ -31,11 +31,13 @@ class CameraModel(Enum):
 
     OPENCV = "OPENCV"
     OPENCV_FISHEYE = "OPENCV_FISHEYE"
+    PINHOLE = "PINHOLE"
 
 
 CAMERA_MODELS = {
     "perspective": CameraModel.OPENCV,
     "fisheye": CameraModel.OPENCV_FISHEYE,
+    "pinhole": CameraModel.PINHOLE,
 }
 
 
@@ -573,7 +575,7 @@ class ProcessImages:
     """Path the data, either a video file or a directory of images."""
     output_dir: Path
     """Path to the output directory."""
-    camera_type: Literal["perspective", "fisheye"] = "perspective"
+    camera_type: Literal["perspective", "fisheye", "pinhole"] = "pinhole"
     """Camera model to use."""
     matching_method: Literal["exhaustive", "sequential", "vocab_tree"] = "vocab_tree"
     """Feature matching method to use. Vocab tree is recommended for a balance of speed and
@@ -663,7 +665,7 @@ class ProcessVideo:
     """Path to the output directory."""
     num_frames_target: int = 300
     """Target number of frames to use for the dataset, results may not be exact."""
-    camera_type: Literal["perspective", "fisheye"] = "perspective"
+    camera_type: Literal["perspective", "fisheye", "pinhole"] = "pinhole"
     """Camera model to use."""
     matching_method: Literal["exhaustive", "sequential", "vocab_tree"] = "vocab_tree"
     """Feature matching method to use. Vocab tree is recommended for a balance of speed and
