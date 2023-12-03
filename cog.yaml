@@ -33,4 +33,4 @@ build:
     - "nerfstudio==0.1.6"
     - "yt-dlp==2022.10.4"
 predict: "predict.py:Predictor"
-image: "r8.im/jimothyjohn/colmap"
+image: "r8.im/pipazoul/colmap"
